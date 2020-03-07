@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} search query test page {% endblock title %}
+{% block extra_css %}
+    <style media="screen">
+        .skyblue{
+            background: skyblue;
+            text-align: center;
+            }
+    </style>
+{% endblock extra_css %}
+
+{% block content %}
+
+       <a href="../">HOME</a>
+        <p class="text-center">{{insert_data|safe}}</p>
+        <form action="{% url 'search' %}" method="post">
+                {% csrf_token %}
+            <table>    
+                {{ form.as_table }}
+            </table>
+        <div class="modal-footer open" >
+            <input type="submit" name="lesson1" value="送信">
+        </div>
+    </form>
+    <!-- result 表示 -->
+    <div class="container">
+    {% for result in results %}
+        <div class="col-lg-12 skyblue" >
+            <p>{{ result.id }}</p>
+            <p>{{ result.title }}</p>
+            <p>{{ result.user_name }}</p>
+            <p>{{ result.content }}</p>
+        </div>
+    {% endfor %}
+    </div>
+    <a href="../">HOME</a>
+
+{% endblock content %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %} blog system with REST_API {% endblock title %}
+
+{% block extra_css %}
+    <style media="screen">
+        .skyblue{
+            background: skyblue;
+            text-align: center;
+            }
+    </style>
+{% endblock extra_css %}
+
+{% block content %}
+
+       <div class="container">
+           <div class="row">
+            <a class="col-lg-4" href="../">HOME</a>
+            <a class="col-lg-4" href="../post/">新規投稿</a>
+            <a class="col-lg-4" href="../search/">検索</a>
+           </div>
+           <div>
+            <h1>{{ insert_data }}</h1>
+            </div>
+
+            {% for results in all_data %}
+            <div class="col-lg-12 skyblue">
+                <h4><p>タイトル
+                {{results.title}}</p></h4>
+            
+                <p>本文
+                {{results.content}}</p>
+
+                <p>カテゴリ
+                {{results.category}}</p>
+
+                <p>ユーザー
+                {{results.user_name}}</p>
+            </div>
+        {% endfor %}
+    
+        <a href="">TOP</a>
+       </div>
+{% endblock content %}

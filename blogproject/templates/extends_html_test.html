@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %} html extends test page {% endblock title %}
+
+{% block content %}
+       <div>
+            <a href="../">HOME</a>
+            <a href="../post/">新規投稿</a>
+            <a href="../search/">検索</a>
+        </div>
+        <div>
+           <h1>{{ insert_data }}</h1>
+        </div>
+        {% for results in all_data %}
+        <div>
+            <h4><p>タイトル
+            {{results.title}}</p></h4>
+            
+            <p>本文
+            {{results.content}}</p>
+            
+            <p>カテゴリ
+            {{results.category}}</p>
+            
+            <p>ユーザー
+            {{results.user_name}}</p>
+        </div>
+        {% endfor %}
+    
+        <a href="">TOP</a>
+{% endblock content %}

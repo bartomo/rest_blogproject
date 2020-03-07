@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %} blog post system with REST_API system {% endblock title %}
+
+{% block content %}
+
+       <a href="../">HOME</a>
+        <p class="text-center">{{insert_data|safe}}</p>
+        <form action="{% url 'post_result' %}" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <div class="modal-footer open" >
+                <input type="submit" class="btn btn-success" name="lesson1" value="送信">
+            </div>
+            
+        </form>
+
+{% endblock content %}

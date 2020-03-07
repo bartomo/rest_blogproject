@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %} post result {% endblock title %}
+
+{% block content %}
+
+       <a href="../">HOME</a>
+        <h1>{{ insert_data }}</h1>
+        <!-- {{result.as_table}} -->
+        <div>
+            <h5>タイトル</h5>
+            <p><h4>{{result.title}}</h4></p>
+
+            <h5>本文</h5>
+            <p>{{result.content}}</p>
+
+            <h5>カテゴリ</h5>
+            <p>{{result.category}}</p>
+
+            <h5>ユーザー</h5>
+            <p>{{result.user_name}}</p>
+
+            <h5>メソッド</h5>
+            <p>{{result.send_method}}</p>
+        </div>
+        <a href="../timeline/">投稿一覧へ</a> 
+        <a href="../">HOME</a>
+
+{% endblock content %}
